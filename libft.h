@@ -6,7 +6,7 @@
 /*   By: alcastel <alcastel@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:40:30 by alcastel          #+#    #+#             */
-/*   Updated: 2022/05/30 16:36:17 by alcastel         ###   ########.fr       */
+/*   Updated: 2022/06/05 19:48:48 by alicia.castel    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+typedef struct s_list{
+void *content;
+struct s_list *next;
+} t_list;
 
 int		ft_isprint(int c);
 int		ft_isdigit(int c);
