@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcastel <alcastel@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 12:25:32 by alcastel          #+#    #+#             */
-/*   Updated: 2022/05/31 12:27:47 by alcastel         ###   ########.fr       */
+/*   Created: 2022/06/07 00:24:25 by alcastel          #+#    #+#             */
+/*   Updated: 2022/06/07 01:10:37 by alcastel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	t_list		*aux;
+
+	if (*lst)
+	{
+		aux = *lst;
+		while (aux->next)
+			aux = aux->next;
+		aux->next = new;
+	}
+	else
+		*lst = new;
 }

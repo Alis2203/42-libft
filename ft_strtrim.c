@@ -6,7 +6,7 @@
 /*   By: alcastel <alcastel@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 19:51:32 by alcastel          #+#    #+#             */
-/*   Updated: 2022/05/22 17:09:55 by alcastel         ###   ########.fr       */
+/*   Updated: 2022/06/07 20:15:38 by alcastel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	f;
 
 	i = 0;
-	f = ft_strlen(s1) - 1;
-	while (ft_strchr(set, s1[i]))
+	if (!s1 && !set)
+		return (NULL);
+	f = ft_strlen(s1);
+	while (ft_strchr(set, s1[i]) && s1[i])
 		i++;
 	while (ft_strchr(set, s1[f]))
 		f--;

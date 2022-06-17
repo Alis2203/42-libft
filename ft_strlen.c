@@ -6,11 +6,13 @@
 /*   By: alcastel <alcastel@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:59:46 by alcastel          #+#    #+#             */
-/*   Updated: 2022/05/20 17:43:52 by alcastel         ###   ########.fr       */
+/*   Updated: 2022/05/31 00:16:37 by alcastel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 size_t	ft_strlen(const char *str)
 {

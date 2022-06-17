@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcastel <alcastel@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 12:25:32 by alcastel          #+#    #+#             */
-/*   Updated: 2022/05/31 12:27:47 by alcastel         ###   ########.fr       */
+/*   Created: 2022/06/06 18:22:20 by alcastel          #+#    #+#             */
+/*   Updated: 2022/06/06 18:55:48 by alcastel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+t_list	*ft_lstnew(void *content)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	t_list	*aux;
+
+	aux = (t_list *)malloc(sizeof(*aux));
+	if (!aux)
+		return (NULL);
+	aux->content = content;
+	aux->next = NULL;
+	return (aux);
 }

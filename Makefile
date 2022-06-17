@@ -6,7 +6,7 @@
 #    By: alcastel <alcastel@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 18:32:47 by alcastel          #+#    #+#              #
-#    Updated: 2022/05/30 16:36:35 by alcastel         ###   ########.fr        #
+#    Updated: 2022/06/17 12:40:47 by alcastel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,27 +19,35 @@ SRC = ft_isascii.c ft_memmove.c ft_strlcat.c ft_strtrim.c ft_atoi.c \
 	  ft_memcmp.c ft_strdup.c ft_strnstr.c ft_isalpha.c ft_memcpy.c \
 	  ft_strjoin.c ft_strrchr.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-	  
-OBJ = $(SRC:.c=.o)
-LIB = libft.h
-FLAGS = -Wall -Wextra -Werror -I$(LIB)
 
-all: $(NAME)
+SRC_BON = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+		  ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+		  ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+
+OBJ = $(SRC:.c=.o)
+OBJ_BON = $(SRC_BON:.c=.o)
+LIB = libft.h
+FLAGS = -Wall -Wextra -Werror 
 
 %.o: %.c $(LIB)
 	cc $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) $(LIB)
+all: $(NAME)
+
+$(NAME): $(OBJ)
 	@ar -crs $(NAME) $^
+	@echo "compilado $(NAME)"
+
+bonus:	$(OBJ) $(OBJ_BON)
+	@ar -rcs $(NAME) $^
+	@touch $@
 
 clean:
-	/bin/rm -f $(OBJ)
+	@rm -f $(OBJ) $(OBJ_BON) bonus
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@rm -f $(NAME)
 
-re:	
-	fclean 
-	all
+re:	fclean all
 
 .PHONY: all clean fclean re
